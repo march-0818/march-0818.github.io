@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The History of Basketball and its Presence in the UK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h2 {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin: 20px 0;
+        }
+
+        form {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        input[type="text"], textarea, input[type="date"] {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Styles for small screens */
+        @media screen and (max-width: 600px) {
+            input[type="text"], textarea, input[type="date"] {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+
+        input[type="submit"] {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a237e;
+        }
+    </style>
+</head>
+<body>
+<h1>The History of Basketball and its Presence in the UK</h1>
+
+<h2>History of Basketball</h2>
+<p>Basketball was invented by Dr. James Naismith in December 1891 in Springfield, Massachusetts, USA. The first game was played with a soccer ball and two peach baskets nailed to a balcony 10 feet above the floor. The sport quickly gained popularity in the United States, and the first professional league, the National Basketball League (NBL), was established in 1937.</p>
+
+<h2>Basketball in the UK</h2>
+<p>The sport was first introduced to the UK by American and Canadian soldiers during World War II. The first recorded basketball game in the UK was played on December 30, 1936, between a US Army team and a local YMCA team in London. The British Basketball League (BBL) was founded in 1987 and has since grown to become the top professional basketball league in the UK.</p>
+
+<h2>Upload Your Game Records</h2>
+<p>Our platform allows you to upload your basketball game records and keep track of your progress. Whether you're a seasoned player or just starting out, you can use our tool to analyze your game and identify areas for improvement. You can also share your records with friends and teammates to compare performance and celebrate victories.</p>
+
+<form action="upload.php" method="post">
+    <label for="date">Date of Game:</label>
+    <input type="date"id="date" name="date"><br><br>
+
+    <label for="teams">Teams:</label>
+    <input type="text" id="teams" name="teams"><br><br>
+
+    <label for="score">Final Score:</label>
+    <input type="text" id="score" name="score"><br><br>
+
+    <label for="stats">Player Statistics:</label>
+    <textarea id="stats" name="stats" rows="4" cols="50"></textarea><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
