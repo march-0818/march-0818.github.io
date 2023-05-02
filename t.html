@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The History of Table Tennis and its Presence in the UK</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			background-color: #3f51b5;
+			color: white;
+			padding: 20px;
+			margin: 0;
+		}
+		
+		h2 {
+			background-color: #e0e0e0;
+			padding: 10px;
+			margin: 20px 0;
+		}
+		
+		form {
+			background-color: #f2f2f2;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 20px 0;
+			text-align: left;
+			display: inline-block;
+		}
+		
+		input[type="text"], textarea, input[type="date"] {
+			width: 50%;
+			padding: 10px;
+			margin: 10px 0;
+			box-sizing: border-box;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		/* Styles for small screens */
+		@media screen and (max-width: 600px) {
+			input[type="text"], textarea, input[type="date"] {
+				width: 100%;
+				font-size: 16px;
+			}
+		}
+		
+		input[type="submit"] {
+			background-color: #3f51b5;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		
+		input[type="submit"]:hover {
+			background-color: #1a237e;
+		}
+	</style>
+</head>
+<body>
+	<h1>The History of Table Tennis and its Presence in the UK</h1>
+	
+	<h2>History of Table Tennis</h2>
+	<p>Table tennis, also known as ping pong, is a popular indoor sport that originated in England in the late 19th century. It was first played as a form of after-dinner entertainment among the upper class. The modern game of table tennis is played with lightweight rackets and a small, hollow ball, and is a fast-paced and exciting sport enjoyed by millions of people around the world.</p>
+
+	<h2>Table Tennis in the UK</h2>
+	<p>Table tennis is a popular recreational and competitive sport in the UK, with numerous clubs and leagues throughout the country. The sport has been played in the UK for over a century, and has produced many top players, including several Olympic medalists.</p>
+
+	<h2>Upload Your Match Records</h2>
+	<p>Our platform allows you to upload your table tennis match records and keep track of your progress. Whether you're a professional player or just enjoy a game with friends, you can use our tool to analyze your performance and identify areas for improvement. You can also share your records with teammates and opponents to compare performance and celebrate victories.</p>
+
+	<form action="upload.php" method="post">
+		<label for="date">Date of Match:</label>
+		<input type="date" id="date" name="date"><br
+		<label for="location">Location:</label>
+		<input type="text" id="location" name="location" placeholder="Enter location of match"><br><br>
+
+		<label for="opponent">Opponent:</label>
+		<input type="text" id="opponent" name="opponent" placeholder="Enter opponent's name"><br><br>
+
+		<label for="score">Match Score:</label>
+		<input type="text" id="score" name="score" placeholder="e.g. 3-2"><br><br>
+
+		<label for="stats">Player Statistics:</label>
+		<textarea id="stats" name="stats" rows="4" cols="50" placeholder="Enter player statistics here..."></textarea><br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

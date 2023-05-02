@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The History of Football and its Presence in the UK</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			background-color: #3f51b5;
+			color: white;
+			padding: 20px;
+			margin: 0;
+		}
+		
+		h2 {
+			background-color: #e0e0e0;
+			padding: 10px;
+			margin: 20px 0;
+		}
+		
+		form {
+			background-color: #f2f2f2;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 20px 0;
+			text-align: left;
+			display: inline-block;
+		}
+		
+		input[type="text"], textarea, input[type="date"] {
+			width: 50%;
+			padding: 10px;
+			margin: 10px 0;
+			box-sizing: border-box;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		/* Styles for small screens */
+		@media screen and (max-width: 600px) {
+			input[type="text"], textarea, input[type="date"] {
+				width: 100%;
+				font-size: 16px;
+			}
+		}
+		
+		input[type="submit"] {
+			background-color: #3f51b5;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		
+		input[type="submit"]:hover {
+			background-color: #1a237e;
+		}
+	</style>
+</head>
+<body>
+	<h1>The History of Football and its Presence in the UK</h1>
+	
+	<h2>History of Football</h2>
+	<p>Football, also known as soccer in some parts of the world, has a long and rich history dating back thousands of years. The modern game of football was codified in England in the 19th century, with the formation of the first football clubs and the establishment of the first football leagues. Today, football is the most popular sport in the world, with millions of fans and players across the globe.</p>
+
+	<h2>Football in the UK</h2>
+	<p>Football is deeply ingrained in British culture, and has been played in the UK for centuries. The first recorded football match in England took place in 1863, and the Football Association (FA) was founded shortly thereafter. Today, football is the most popular sport in the UK, with numerous professional leagues and hundreds of amateur clubs.</p>
+
+	<h2>Upload Your Match Records</h2>
+	<p>Our platform allows you to upload your football match records and keep track of your progress. Whether you're a professional player or just enjoy a game with friends, you can use our tool to analyze your performance and identify areas for improvement. You can also share your records with teammates and opponents to compare performance and celebrate victories.</p>
+
+	<form action="upload.php" method="post">
+		<label for="date">Date of Match:</label>
+		<input type="dateid="date" name="date"><br><br>
+
+		<label for="teams">Teams:</label>
+		<input type="text" id="teams" name="teams" placeholder="Home vs Away"><br><br>
+
+		<label for="score">Final Score:</label>
+		<input type="text" id="score" name="score" placeholder="e.g. 2-1"><br><br>
+
+		<label for="stats">Player Statistics:</label>
+		<textarea id="stats" name="stats" rows="4" cols="50" placeholder="Enter player statistics here..."></textarea><br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
+
