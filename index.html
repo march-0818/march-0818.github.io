@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimination Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+    <h1>Elimination Game</h1>
+    <p>Select number of computer opponents: <select id="num-of-opponents"></select></p>
+    <p id="timer">Time left: 10 seconds</p>
+    <p id="player-status">Player Life: 3</p>
+    <p id="opponent-status">Opponent Life: 3</p>
+    <p id="energy-status">Energy: 0</p>
+    <p id="round-number">Round: 1</p>
+    <button id="attack">Attack</button>
+    <button id="defense">Defense</button>
+    <button id="charge">Charge</button>
+    <button id="strengthen-attack">Strengthen Attack</button>
+    <button id="restart">Restart</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const attackBtn = document.getElementById("attack");
+        const defenseBtn = document.getElementById("defense");
+        const chargeBtn = document.getElementById("charge");
+        const strengthenAttackBtn = document.getElementById("strengthen-attack");
+        const restartBtn = document.getElementById("restart");
+        const timerElement = document.getElementById("timer");
+        const playerStatusElement = document.getElementById("player-status");
+        const opponentStatusElement = document.getElementById("opponent-status");
+        const energyStatusElement = document.getElementById("energy-status");
+        const roundNumberElement = document.getElementById("round-number");
+        const numOfOpponentsSelect = document.getElementById("num-of-opponents");
+
+        let timeLeft = 10;
+        let playerLife = 3;
+        let energy = 0;
+        let numOfOpponents = 1;
+        let opponentLife = Array(numOfOpponents).fill(3);
+        let computerEnergy = Array(numOfOpponents).fill(0);
+        let roundNumber = 1;
+
+        const init = () => {
+            for (let i = 1; i <= 4; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                numOfOpponentsSelect.appendChild(option);
+            }
+            numOfOpponentsSelect.value = numOfOpponents;
+        };
+
+        const updateStatus = () => {
+            playerStatusElement.textContent = `Player Life: ${playerLife}`;
+            opponentStatusElement.textContent = `Opponent Life: ${opponentLife.join(", ")}`;
+            energyStatusElement.textContent = `Energy: ${energy}`;
+            roundNumberElement.textContent = `Round: ${roundNumber}`;
+        };
+
+        const countdown = () => {
+            if (timeLeft === 0) {
+                clearInterval(intervalId);
+                return;
+            }
+            timerElement.textContent = `Time left: ${timeLeft} seconds`;
+            timeLeft--;
+        };
+
+        const computerAction = () => {
+            const actions = ["attack", "defense", "charge", "strengthen-attack"];
+            return actions[Math.floor(Math.random() * actions.length)];
+        };
+
+        numOfOpponentsSelect.addEventListener("change", () => {
+            numOfOpponents = parseInt(numOfOpponentsSelect.value);
+            opponentLife = Array(numOfOpponents).fill(3);
+            computerEnergy = Array(numOfOpponents).fill(0);
+            updateStatus();
+        });
+
+        const executeAction = (playerAction, computerActions) => {
+            if (playerAction === "attack" && energy >= 1) {
+                computerActions.forEach((action, index) => {
+                    if (action === "defense") {
+                        // Attack blocked
+                    } else {
+                        opponentLife[index]--;
+                    }
+                });
+                energy--;
+            } else if (playerAction === "defense") {
+                computerActions.forEach((action, index) => {
+                    if (action === "strengthen-attack" && computerEnergy[index] >= 2) {
+                        playerLife--;
+                        computerEnergy[index] -= 2;
+                    }
+                });
+            } else if (playerAction === "charge") {
+                energy++;
+                computerActions.forEach((action, index) => {
+                    if (action === "attack" && computerEnergy[index] >= 1) {
+                        playerLife--;
+                        computerEnergy[index]--;
+                    }
+                });
+            } else if (playerAction === "strengthen-attack" && energy >= 2) {
+                computerActions.forEach((action, index) => {
+                    if (action !== "defense") {
+                        opponentLife[index]--;
+                    }
+                });
+                energy -= 2;
+            }
+
+            computerActions.forEach((action, index) => {
+                if (action === "charge") {
+                    computerEnergy[index]++;
+                }
+            });
+
+            if (playerLife <= 0) {
+                playerLife = 0;
+            }
+            if (energy < 0) {
+                energy = 0;
+            }
+
+            updateStatus();
+            checkGameOver();
+        };
+
+        const checkGameOver = () => {
+            if (playerLife <= 0 || opponentLife.every(life => life <= 0)) {
+                clearInterval(intervalId);
+                if (playerLife > Math.max(...opponentLife)) {
+                    alert("Player wins!");
+                } else {
+                    alert("Computer wins!");
+                }
+            }
+        };
+
+        attackBtn.addEventListener("click", () => {
+            executeAction("attack", Array(numOfOpponents).fill(0).map(() => computerAction()));
+        });
+
+        defenseBtn.addEventListener("click", () => {
+            executeAction("defense", Array(numOfOpponents).fill(0).map(() => computerAction()));
+        });
+
+        chargeBtn.addEventListener("click", () => {
+            executeAction("charge", Array(numOfOpponents).fill(0).map(() => computerAction()));
+        });
+
+        strengthenAttackBtn.addEventListener("click", () => {
+            executeAction("strengthen-attack", Array(numOfOpponents).fill(0).map(() => computerAction()));
+        });
+
+        restartBtn.addEventListener("click", () => {
+            clearInterval(intervalId);
+            timeLeft = 10;
+            playerLife = 3;
+            energy = 0;
+            opponentLife = Array(numOfOpponents).fill(3);
+            computerEnergy = Array(numOfOpponents).fill(0);
+            roundNumber = 1;
+            updateStatus();
+            intervalId = setInterval(countdown, 1000);
+        });
+
+        init();
+        updateStatus();
+        countdown();
+        const intervalId = setInterval(countdown, 1000);
+    });
+</script>
+</body>
+</html>

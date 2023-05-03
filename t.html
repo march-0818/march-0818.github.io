@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The History of Basketball and its Presence in the UK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: "Broadgate Park";
+            font-size: 200px;
+            font-weight: bold;
+            color: #FFCC80;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        h1 {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h2 {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin: 20px 0;
+        }
+
+        form {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            display: inline-block;
+            background-color: transparent;
+        }
+
+        input[type="text"], textarea, input[type="date"] {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: transparent;
+        }
+
+        input[type="submit"] {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a237e;
+        }
+
+        /* Audio player styles */
+        audio {
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            input[type="text"], textarea, input[type="date"] {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            audio {
+                width: 100%;
+            }
+        }
+
+        .play-pause-btn {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .play-pause-btn:hover {
+            background-color: #1a237e;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px;
+        }
+
+        .pagination-btn:hover {
+            background-color: #1a237e;
+        }
+
+    </style>
+
+</head>
+<body>
+<h1>The History of Table Tennis and its Presence in the World</h1>
+<h2>Music Player</h2>
+<p>Listen to some music while browsing the site:</p>
+<audio id="audio-player" controls>
+    <source src="path/to/your/audio/file.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<button id="play-pause-btn" class="play-pause-btn" onclick="togglePlayPause()">Play/Pause</button>
+<script>
+    const audioPlayer = document.getElementById("audio-player");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    scss
+    Copy code
+    function togglePlayPause() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseBtn.textContent = "Pause";
+        } else {
+            audioPlayer.pause();
+            playPauseBtn.textContent = "Play";
+        }
+    }
+</script>
+<h2>History of Table Tennis</h2>
+<p>Table tennis, also known as ping pong, was invented in the late 19th century in England. The game was initially played with makeshift equipment, including a row of books for a net and a golf ball. The sport quickly became popular in Europe, and in 1926, the International Table Tennis Federation (ITTF) was established to regulate the sport globally.</p>
+<h2>Table Tennis in the World</h2>
+<p>Table tennis is now played in countries all over the world and is a popular recreational and competitive sport. It has been an Olympic sport since 1988, and top players from China dominate the world rankings. There are also many professional table tennis leagues around the world, including the China Table Tennis Super League and the European Table Tennis Union.</p>
+<h2>Upload Your Game Records</h2>
+<p>Our platform allows you to upload your table tennis game records and keep track of your progress. Whether you're a seasoned player or just starting out, you can use our tool to analyze your game and identify areas for improvement. You can also share your records with friends and teammates to compare performance and celebrate victories.</p>
+<form action="upload.php" method="post">
+    <label for="date">Date of Game:</label>
+    <input type="date" id="date" name="date"><br><br>
+    php
+    Copy code
+    <label for="players">Players:</label>
+    <input type="text" id="players" name="players"><br><br>
+
+    <label for="score">Final Score:</label>
+    <input type="text" id="score" name="score"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+<h2>Player Game Records</h2>
+<table id="game-records-table">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Players</th>
+        <th>Final Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Table rows will be added dynamically using JavaScript -->
+    </tbody>
+</table>
+<button id="prev-btn" class="pagination-btn" onclick="previousPage()">Previous</button>
+<button id="next-btn" class="pagination-btn" onclick="nextPage()">Next</button>
+
+<script>
+    // Example data, replace with your actual data fetched from the database
+    const gameRecords = [
+        {
+            date: "2023-05-01",
+            players: "Player A vs Player B",
+            score: "3-2"
+        },
+        {
+            date: "2023-05-02",
+            players: "Player C vs Player D",
+            score: "2-3"
+        }
+    ];
+
+    scss
+    Copy code
+    const rowsPerPage = 10;
+    let currentPage = 1;
+
+    function renderTable() {
+        const tableBody = document.getElementById("game-records-table").getElementsByTagName("tbody")[0];
+        tableBody.innerHTML = "";
+
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const recordsToDisplay = gameRecords.slice(start, end);
+
+        recordsToDisplay.forEach(record => {
+            const row = tableBody.insertRow(-1);
+
+            const dateCell = row.insertCell(0);
+            dateCell.textContent = record.date;
+
+            const playersCell = row.insertCell(1);
+            playersCell.textContent = record.players;
+
+            const scoreCell = row.insertCell(2);
+            scoreCell.textContent = record.score;
+        });
+    }
+
+    function previousPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderTable();
+        }
+    }
+
+    function nextPage() {
+        const totalPages = Math.ceil(gameRecords.length / rowsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderTable();
+        }
+    }
+</script>
+<script>renderTable();</script>
+
+<h2>Play Our Mini Game</h2>
+<p>Take a break and have some fun with our game. Click the button below to start playing!</p>
+<a href="index.html">
+    <button id="play-game-btn" class="play-pause-btn">
+        Play Mini Game
+    </button>
+</a>
+</body>
+</html>
